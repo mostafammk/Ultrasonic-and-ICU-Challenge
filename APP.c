@@ -1,38 +1,41 @@
-/********************************************************************
- * Project Name:		MovingCar									*
- *																	*
- * Project Description:						                        *
- *																	*
- * Project Author:       Mahmoud Rezk Mahmoud						*
- ********************************************************************/
-#include "Service.h"
-extern uint16 g_Distance;
-int main (void)
-{
-	static uint16 L_Distance=g_Distance;
+/*
+ * GccApplication1.c
+ *
+ * Created: 10/1/2019 12:36:36 PM
+ * Author : minam
+ */ 
+
+//#include <avr/io.h>
+#define F_CPU 16000000ul
+#include "ICU.h"
+#include "LCD.h"
+#include "ULTRS.h"
+#include <util/delay.h>
+
+int main(void)
+{	
+	ICU_init();
+	INTP0_vidEnabled();
+	ULTRS_init();
+	LCD_INIT_4bit();
+	volatile float32 freq;
+
+	uint16 L_Distance=g_Distance;
 	static uint16 L_count=0;
-	SERVICE_init();
-	while(1)
-	{
+    while (1) 
+    {
 		if(L_Distance!=g_Distance)
 		{
 			L_Distance=g_Distance;
 			ULTRS_trig();
-			DIO_write(PORT_B,PIN4,HIGH);
-			L_count++;
+			
+			//L_count++;
 		}
-		else
-		{
-			DIO_write(PORT_B,PIN4,LOW);
-		}
-		LCD_displayString("Distance = ");
-		LCD_intgerToString(L_Distance);
-
-	}
-
-
-
-
-
-	return 0;
+		LCD_CLR();
+		LCD_NUM_DISP(0,5,g_Distance);
+		//LCD_String_DISP(0,0,"                ");
+		
+		_delay_ms(10);
+    }
 }
+
