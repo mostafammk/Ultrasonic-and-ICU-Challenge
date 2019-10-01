@@ -8,6 +8,9 @@
 #ifndef AVR_REG_H_
 #define AVR_REG_H_
 
+#define NULL ((void int *)0)
+
+
 /* Group A Registers */
 #define PORTA  *((volatile uint8*)0x3B)
 #define DDRA   *((volatile uint8*)0x3A)
@@ -31,30 +34,47 @@
 /* SREG Register */
 #define SREG  *((volatile uint8*)0x5F)
 
+//Timer control Register address for timer 1 channel A
+#define TCCR1A (*(( volatile uint8*)0x4F))
+//Timer control Register address for timer 1 channel B
+#define TCCR1B (*(( volatile uint8*)0x4E))
+//Timer1 registers address Timer/Counter1 – TCNT1H and TCNT1L
+#define TCNT1L (*(( volatile uint16*)0x4C))
+//Output Compare Register 1 A – OCR1AH and OCR1AL
+#define OCR1AL (*(( volatile uint16*)0x4A))
+//Output Compare Register 1 B– OCR1BH and OCR1BL
+#define OCR1BL (*(( volatile uint16*)0x48))
+//Input Capture Register 1 –ICR1H and ICR1L
+#define ICR1L (*(( volatile uint16*)0x46))
+//Timer control Register address for timer 0
+#define TCCR0 (*(( volatile uint8*)0x53))
+//Timer registers address
+#define TCNT0 (*(( volatile uint8*)0x52))
+//Output Compare Register address
+#define OCR0 (*(( volatile uint8*)0x5C))
+//Timer/Counter Interrupt Mask Register – TIMSK
+#define TIMSK (*(( volatile uint8*)0x59))
+//Timer/Counter Interrupt Flag Register – TIFR
+#define TIFR (*(( volatile uint8*)0x58))
+//Timer control Register address for timer 2
+#define TCCR2 (*(( volatile uint8*)0x45))
+//Timer registers address
+#define TCNT2 (*(( volatile uint8*)0x44))
+//Output Compare Register address
+#define OCR2 (*(( volatile uint8*)0x43))
+//to enable the Global Interrupt Flag pin
+#define SREG_I 7
 
-/* TIMER 0 AND TIMER 2 */
-#define TCCR0	(* (volatile uint8 *) 0x53)
-#define TCNT0	(* (volatile uint8 *) 0x52)
-#define OCR0	(* (volatile uint8 *) 0x5C)
-#define TIMSK	(* (volatile uint8 *) 0x59)
-#define TIFR	(* (volatile uint8 *) 0x58)
-#define	TCCR2	(* (volatile uint8 *) 0x45)
-#define	TCNT2	(* (volatile uint8 *) 0x44)
-#define	OCR2	(* (volatile uint8 *) 0x43)
-#define	ASSR	(* (volatile uint8 *) 0x42)
+//ADDRESS OF GICR "GLOBAL INTERRUPT CONTROL REGISTER"
+#define GICR_ADDRESS 0x5B
+#define GICR (*(volatile u8 *) GICR_ADDRESS)
 
-/* TIMER 1 */
-#define	TCCR1A	(* (volatile uint8 *) 0x4F)
-#define	TCCR1B	(* (volatile uint8 *) 0x4E)
-#define	TCNT1L	(* (volatile uint8 *) 0x4C)
-#define	TCNT1H	(* (volatile uint8 *) 0x4D)
-#define	OCR1AH	(* (volatile uint8 *) 0x4B)
-#define	OCR1AL	(* (volatile uint8 *) 0x4A)
-#define	OCR1BH	(* (volatile uint8 *) 0x49)
-#define	OCR1BL	(* (volatile uint8 *) 0x48)
-#define	ICR1H	(* (volatile uint8 *) 0x47)
-#define	ICR1L	(* (volatile uint8 *) 0x46)
+//ADDRESS OF MCUCR "MCU CONTROL REGISTER"
+#define MCUCR_ADDRESS 0x55
+#define MCUCR (*(volatile u8 *) MCUCR_ADDRESS)
 
-
+//ADDRESS OF MCUCSR "MCU CONTROL SENSE REGISTER"
+#define MCUCSR_ADDRESS 0x54
+#define MCUCSR (*(volatile u8 *) MCUCSR_ADDRESS)
 
 #endif /* AVR_REG_H_ */
