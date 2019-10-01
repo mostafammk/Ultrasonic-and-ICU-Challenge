@@ -8,7 +8,7 @@
 #ifndef AVR_REG_H_
 #define AVR_REG_H_
 
-#define NULL ((void int *)0)
+#define NULL ((void *)0)
 
 
 /* Group A Registers */
@@ -67,14 +67,14 @@
 
 //ADDRESS OF GICR "GLOBAL INTERRUPT CONTROL REGISTER"
 #define GICR_ADDRESS 0x5B
-#define GICR (*(volatile u8 *) GICR_ADDRESS)
+#define GICR (*(volatile uint8 *) GICR_ADDRESS)
 
 //ADDRESS OF MCUCR "MCU CONTROL REGISTER"
 #define MCUCR_ADDRESS 0x55
-#define MCUCR (*(volatile u8 *) MCUCR_ADDRESS)
+#define MCUCR (*(volatile uint8 *) MCUCR_ADDRESS)
 
 //ADDRESS OF MCUCSR "MCU CONTROL SENSE REGISTER"
 #define MCUCSR_ADDRESS 0x54
-#define MCUCSR (*(volatile u8 *) MCUCSR_ADDRESS)
+#define MCUCSR (*(volatile uint8 *) MCUCSR_ADDRESS)
 
 #endif /* AVR_REG_H_ */
