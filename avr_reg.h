@@ -65,6 +65,16 @@
 //to enable the Global Interrupt Flag pin
 #define SREG_I 7
 
+//ADDRESS OF GICR "GLOBAL INTERRUPT CONTROL REGISTER"
+#define GICR_ADDRESS 0x5B
+#define GICR (*(volatile u8 *) GICR_ADDRESS)
 
+//ADDRESS OF MCUCR "MCU CONTROL REGISTER"
+#define MCUCR_ADDRESS 0x55
+#define MCUCR (*(volatile u8 *) MCUCR_ADDRESS)
+
+//ADDRESS OF MCUCSR "MCU CONTROL SENSE REGISTER"
+#define MCUCSR_ADDRESS 0x54
+#define MCUCSR (*(volatile u8 *) MCUCSR_ADDRESS)
 
 #endif /* AVR_REG_H_ */
