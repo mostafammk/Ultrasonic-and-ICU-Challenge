@@ -1785,28 +1785,6 @@ uint8 CHANGE_PWM(uint8 TIMER_ID,uint8 PWM_DUTYCYCLE_chA)
 }
 
 
-void Delay(uint8 TIMER_ID,uint32 Delay_us)
-{
-
-	switch(TIMER_ID)
-	{
-	case TIMER0:
-		TCNT0 = 0;
-		while(TCNT0 < (Delay_us-15));
-		break;
-	case TIMER1:
-		TCNT1 = 0;
-		while(TCNT1 < (Delay_us-15));
-		break;
-	case TIMER2:
-		TCNT2 = 0;
-		while(TCNT2 < (Delay_us-15));
-		break;
-	}
-
-
-}
-
 
 void TIMER0_OVF_setCallBack(void (*COPY_TIMER0_OVF_callBackPtr)(void))
 {

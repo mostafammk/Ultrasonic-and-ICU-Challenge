@@ -24,7 +24,6 @@ uint8 TIMER_init(void);
 uint8 TIMER_start(uint8 TIMER_ID);
 uint8 TIMER_stop(uint8 TIMER_ID);
 
-void Delay(uint8 TIMER_ID,uint32 Delay_us);
 uint8 CHANGE_PWM(uint8 TIMER_ID,uint8 PWM_DUTYCYCLE_chA);
 
 void TIMER0_OVF_setCallBack(void (*COPY_TIMER0_OVF_callBackPtr)(void));
