@@ -8,6 +8,9 @@
 #ifndef AVR_REG_H_
 #define AVR_REG_H_
 
+#define NULL ((void int *)0)
+
+
 /* Group A Registers */
 #define PORTA  *((volatile uint8*)0x3B)
 #define DDRA   *((volatile uint8*)0x3A)
@@ -61,6 +64,7 @@
 #define OCR2 (*(( volatile uint8*)0x43))
 //to enable the Global Interrupt Flag pin
 #define SREG_I 7
+
 
 
 #endif /* AVR_REG_H_ */
