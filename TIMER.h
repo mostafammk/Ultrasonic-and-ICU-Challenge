@@ -9,10 +9,8 @@
 #define TIMER_H_
 
 
-#include "REG_Lib.h"
-#include "STD_TYPES.h"
 #include "TIMER_cnfg.h"
-#include "Interrupts.h"
+//#include "Interrupts.h"
 
 
 #define MAX_NUM_OF_TIMERS		(uint8)3

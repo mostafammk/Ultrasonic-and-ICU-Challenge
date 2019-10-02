@@ -9,6 +9,7 @@
 #define TIMER_CNFG_H_
 
 #include "STD_TYPES.h"
+#include "REG_Lib.h"
 
 typedef enum {T1,NUM_OF_Timers}Timers_Name;
 

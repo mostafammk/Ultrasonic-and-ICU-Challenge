@@ -5,7 +5,7 @@
  *      Author: alx
  */
 #include "TIMER.h"
-#include <avr/interrupt.h>
+#include "Interrupts.h"
 
 
 
