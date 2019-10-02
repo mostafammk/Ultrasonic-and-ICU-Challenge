@@ -8,11 +8,13 @@
 #ifndef DIO_CONF_H_
 #define DIO_CONF_H_
 
-#include"avr_reg.h"
+#include"REG_Lib.h"
 #include"STD_Types.h"
 
 typedef enum { A ,B , C , D, motor1 , motor2 ,  NUM_PINS } PINS_t ;
 
+#define NOK 0
+#define OK 1
 
 #define PORT_A		0
 #define PORT_B		1
