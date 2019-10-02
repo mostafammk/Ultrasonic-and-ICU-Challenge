@@ -11,12 +11,5 @@
  { port , pin Number , Pin direction , output_value , Pullup/external resistor , initialized/not initialized }*/
 	 
 DIO_Conf_t DIO_Array[NUM_PINS] = {
-		{PORT_B, PIN0, OUTPUT, LOW, NA, INITIALIZED },
-		{PORT_B, PIN1, OUTPUT, LOW, NA, INITIALIZED},
-		{PORT_B, PIN2, OUTPUT, LOW, NA, INITIALIZED},
-		{PORT_B, PIN3, OUTPUT, LOW, NA, INITIALIZED},
-
-		{PORT_D, PIN6, OUTPUT, LOW, NA, INITIALIZED},
-		{PORT_D, PIN7, OUTPUT, LOW, NA, INITIALIZED}
-			
+		{PORT_B, PIN0, OUTPUT, LOW, NA, INITIALIZED }
 };

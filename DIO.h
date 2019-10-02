@@ -8,9 +8,7 @@
 #ifndef DIO_H_
 #define DIO_H_
 
-#include"avr_reg.h"
-#include"STD_Types.h"
-#include"DIO_conf.h"
+#include "DIO_conf.h"
 
 #define MAX_NUM_PINS (uint8 )32
 
