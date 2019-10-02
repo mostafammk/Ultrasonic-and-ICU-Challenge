@@ -19,9 +19,7 @@ int main(void)
 	INTP0_vidEnabled();
 	DIO_Init();
 	LCD_INIT_4bit();
-	volatile float32 freq;
 
-	//float32 L_Distance=g_Distance;
 	static uint16 L_count=0;
     while (1) 
     {
