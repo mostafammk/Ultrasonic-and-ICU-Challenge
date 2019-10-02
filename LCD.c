@@ -114,6 +114,7 @@ void LCD_CHAR_DISP(uint8 row , uint8 col, uint8 data)
 {
 	LCD_CUSRSOR_POS(row,col);
 	DATA_WRT_4bit(data);
+	_delay_ms(1);
 }
 
 
