@@ -10,6 +10,7 @@
 
 #include "MOTOR_confg.h"
 
+
 #define MOTOR_CTRL_REG PORT_D
 #define MOTOR1_ENA_PIN PIN5
 #define MOTOR1_DIR_PIN1 PIN6

@@ -21,16 +21,16 @@ uint8 MOTOR_init(void)
 			switch(MOTOR_cnfg_arr[LOOP_index].MOTOR_STATUS)
 			{
 			case STOP:
-				DIO_write(MOTOR_CTRL_REG,MOTOR1_DIR_PIN1,LOW);
-				DIO_write(MOTOR_CTRL_REG,MOTOR1_DIR_PIN2,LOW);
+				DIO_Write(MOTOR1A,LOW);
+				DIO_Write(MOTOR1B,LOW);
 				break;
 			case FORWARD:
-				DIO_write(MOTOR_CTRL_REG,MOTOR1_DIR_PIN1,HIGH);
-				DIO_write(MOTOR_CTRL_REG,MOTOR1_DIR_PIN2,LOW);
+				DIO_Write(MOTOR1A,HIGH);
+				DIO_Write(MOTOR1B,LOW);
 				break;
 			case REVERSE:
-				DIO_write(MOTOR_CTRL_REG,MOTOR1_DIR_PIN1,LOW);
-				DIO_write(MOTOR_CTRL_REG,MOTOR1_DIR_PIN2,HIGH);
+				DIO_Write(MOTOR1A,LOW);
+				DIO_Write(MOTOR1B,HIGH);
 				break;
 			default:
 				retval=NOK;
@@ -41,16 +41,16 @@ uint8 MOTOR_init(void)
 				switch(MOTOR_cnfg_arr[LOOP_index].MOTOR_STATUS)
 				{
 				case STOP:
-					DIO_write(MOTOR_CTRL_REG,MOTOR2_DIR_PIN1,LOW);
-					DIO_write(MOTOR_CTRL_REG,MOTOR2_DIR_PIN2,LOW);
+					DIO_Write(MOTOR2A,LOW);
+					DIO_Write(MOTOR2B,LOW);
 					break;
 				case FORWARD:
-					DIO_write(MOTOR_CTRL_REG,MOTOR2_DIR_PIN1,HIGH);
-					DIO_write(MOTOR_CTRL_REG,MOTOR2_DIR_PIN2,LOW);
+					DIO_Write(MOTOR2A,HIGH);
+					DIO_Write(MOTOR2B,LOW);
 					break;
 				case REVERSE:
-					DIO_write(MOTOR_CTRL_REG,MOTOR2_DIR_PIN1,LOW);
-					DIO_write(MOTOR_CTRL_REG,MOTOR2_DIR_PIN2,HIGH);
+					DIO_Write(MOTOR2A,LOW);
+					DIO_Write(MOTOR2B,HIGH);
 					break;
 				default:
 					retval=NOK;
@@ -74,13 +74,13 @@ uint8 MOTOR_Forward(uint8 Motor_Num)
 	{
 		if(Motor_Num==MOTOR1)
 		{
-			DIO_write(MOTOR_CTRL_REG,MOTOR1_DIR_PIN1,HIGH);
-			DIO_write(MOTOR_CTRL_REG,MOTOR1_DIR_PIN2,LOW);
+			DIO_Write(MOTOR1A,HIGH);
+			DIO_Write(MOTOR1B,LOW);
 		}
 		else
 		{
-			DIO_write(MOTOR_CTRL_REG,MOTOR2_DIR_PIN1,HIGH);
-			DIO_write(MOTOR_CTRL_REG,MOTOR2_DIR_PIN2,LOW);
+			DIO_Write(MOTOR2A,HIGH);
+			DIO_Write(MOTOR2B,LOW);
 		}
 
 	}
@@ -100,13 +100,13 @@ uint8 MOTOR_Reverse(uint8 Motor_Num)
 	{
 		if(Motor_Num==MOTOR1)
 		{
-			DIO_write(MOTOR_CTRL_REG,MOTOR1_DIR_PIN1,LOW);
-			DIO_write(MOTOR_CTRL_REG,MOTOR1_DIR_PIN2,HIGH);
+			DIO_Write(MOTOR1A,LOW);
+			DIO_Write(MOTOR1B,HIGH);
 		}
 		else
 		{
-			DIO_write(MOTOR_CTRL_REG,MOTOR2_DIR_PIN1,LOW);
-			DIO_write(MOTOR_CTRL_REG,MOTOR2_DIR_PIN2,HIGH);
+			DIO_Write(MOTOR2A,LOW);
+			DIO_Write(MOTOR2B,HIGH);
 		}
 
 	}
@@ -128,13 +128,13 @@ uint8 MOTOR_Stop(uint8 Motor_Num)
 	{
 		if(Motor_Num==MOTOR1)
 		{
-			DIO_write(MOTOR_CTRL_REG,MOTOR1_DIR_PIN1,LOW);
-			DIO_write(MOTOR_CTRL_REG,MOTOR1_DIR_PIN2,LOW);
+			DIO_Write(MOTOR1A,LOW);
+			DIO_Write(MOTOR1B,LOW);
 		}
 		else
 		{
-			DIO_write(MOTOR_CTRL_REG,MOTOR2_DIR_PIN1,LOW);
-			DIO_write(MOTOR_CTRL_REG,MOTOR2_DIR_PIN2,LOW);
+			DIO_Write(MOTOR2A,LOW);
+			DIO_Write(MOTOR2B,LOW);
 		}
 	}
 	else
