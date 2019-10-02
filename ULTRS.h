@@ -13,13 +13,15 @@
 #ifndef ULTRS_H_
 #define ULTRS_H_
 
-#include <avr/io.h>
-#include "std_types.h"
-#include <util/delay.h>
+#include "ICU.h"
+#include "DIO.h"
 
-#define Velocity (34000)
 
-extern float32 g_PulsTime;
+#define Velocity (0.034)
+
+
+extern float32 g_Distance;
+
 
 extern void ULTRS_init(void);
 extern void ULTRS_trig(void);
