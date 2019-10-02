@@ -13,6 +13,8 @@
 
 typedef enum { A ,B , C , D, motor1 , motor2 ,  NUM_PINS } PINS_t ;
 
+#define NOK 0
+#define OK 1
 
 #define PORT_A		0
 #define PORT_B		1
