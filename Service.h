@@ -9,10 +9,12 @@
 #define SERVICE_H_
 #include "DIO.h"
 #include "TIMER.h"
-/*
 #include "ULTRS.h"
 #include "lcd.h"
-*/
+#include "ICU.h"
+#include "ExtInter.h"
+
+#define F_CPU 8000000ul
 
 uint8 SERVICE_init (void);
 uint8 Delay(uint8 TIMER_ID,uint32 Delay);

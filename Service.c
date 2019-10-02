@@ -8,7 +8,7 @@
 
 
 
-uint32 g_TimeCount=0;
+volatile uint32 g_TimeCount=0;
 
 void Counting_Time(void)
 {
@@ -16,11 +16,15 @@ void Counting_Time(void)
 
 }
 
+
 uint8 SERVICE_init (void)
 {
 	uint8 funcStatus = OK;
 
-	if(DIO_init())
+		ULTRS_init();
+		ICU_init();
+		INTP0_vidEnabled();
+	if(DIO_Init())
 	{
 
 	}
@@ -38,26 +42,12 @@ uint8 SERVICE_init (void)
 		funcStatus = NOK;
 	}
 
+	
+
+	LCD_INIT_4bit();
+
 	return funcStatus;
-
-	if(LCD_init())
-	{
-
-	}
-	else
-	{
-		funcStatus = NOK;
-
-	}
-	if(ULTRS_init())
-	{
-
-	}
-	else
-	{
-		funcStatus = NOK;
-
-	}
+	
 }
 
 uint8 Delay(uint8 TIMER_ID,uint32 Delay_ms)
@@ -65,7 +55,7 @@ uint8 Delay(uint8 TIMER_ID,uint32 Delay_ms)
 	uint8 retval=NOK;
 	uint8 Loop_index=0;
 	uint16 LOC_TimeCount=0;
-	float128 Tick_Time=0;
+	float32 Tick_Time=0;
 	for(Loop_index=0;Loop_index<NUM_OF_Timers;Loop_index++)
 	{
 		if(TIMER_cnfg_arr[Loop_index].TIMER_ID==TIMER_ID)
@@ -114,6 +104,7 @@ uint8 Delay(uint8 TIMER_ID,uint32 Delay_ms)
 					TIMSK |= 0x02;
 					SREG |= (1u<<SREG_I);
 					TIMER0_CMP_setCallBack(Counting_Time);
+					
 				}
 				else
 				{
@@ -170,10 +161,15 @@ uint8 Delay(uint8 TIMER_ID,uint32 Delay_ms)
 			}
 			if((LOC_TimeCount != 0)||(LOC_TimeCount != 1))
 			{
-				LOC_TimeCount = LOC_TimeCount-2;
+				LOC_TimeCount = LOC_TimeCount-1;
 			}
+
 			TIMER_start(TIMER_ID);
-			while(LOC_TimeCount != g_TimeCount);
+			while(LOC_TimeCount > g_TimeCount)
+			{
+				
+			}
+			
 			TIMER_stop(TIMER_ID);
 			g_TimeCount=0;
 			Loop_index=MAX_NUM_OF_TIMERS+1;
