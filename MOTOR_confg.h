@@ -10,7 +10,7 @@
 
 #include "DIO.h"
 
-typedef enum {MOtor1,NUM_OF_Motors}Motors_N;
+typedef enum {MOtor1,MOtor2,NUM_OF_Motors}Motors_N;
 
 
 #define MOTOR1 0

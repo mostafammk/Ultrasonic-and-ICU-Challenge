@@ -11,9 +11,12 @@
 #include "MOTOR_confg.h"
 
 #define MOTOR_CTRL_REG PORT_D
-#define MOTOR_ENA_PIN PIN5
-#define MOTOR_DIR_PIN1 PIN6
-#define MOTOR_DIR_PIN2 PIN7
+#define MOTOR1_ENA_PIN PIN5
+#define MOTOR1_DIR_PIN1 PIN6
+#define MOTOR1_DIR_PIN2 PIN7
+#define MOTOR2_ENA_PIN PIN4
+#define MOTOR2_DIR_PIN1 PIN2
+#define MOTOR2_DIR_PIN2 PIN3
 
 uint8 MOTOR_init(void);
 uint8 MOTOR_Forward(uint8 Motor_Num);
