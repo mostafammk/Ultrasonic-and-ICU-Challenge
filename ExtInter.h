@@ -3,7 +3,7 @@
 
 #include "STD_Types.h"
 #include "ExtInter_conf.h"
-#include "avr_reg.h"
+#include "REG_Lib.h"
 
 STD_Fun_t INTP_vidInit(void);
 

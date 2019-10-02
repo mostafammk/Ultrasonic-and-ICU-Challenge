@@ -1,7 +1,7 @@
 #ifndef EXTINTER_CONF_H_
 #define EXTINTER_CONF_H_
 
-#include "avr_reg.h"
+#include "REG_Lib.h"
 #include "STD_Types.h"
 
 typedef enum { Interrupt_0, Interrupt_1, Interrupt_2, Num_Of_Interrupt} Interrupt_t;

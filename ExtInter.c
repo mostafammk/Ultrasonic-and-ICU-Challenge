@@ -1,4 +1,4 @@
-#include"ExtInter.h"
+#include "ExtInter.h"
 
 
 void (*Ptr_INT0) (void) = NULL;
@@ -29,7 +29,8 @@ STD_Fun_t INTP_vidInit(void)
 
             if (Interrupt_Array[Local_Loop].Name == INT0){
                 // Pull Up Resistor
-                PORTD |= (1<<INT0_PIN);
+                DDRD &= ~(1<<INT0_PIN);
+				//PORTD |= (1<<INT0_PIN);
                 // Configuration
                 switch(Interrupt_Array[Local_Loop].Trigger_Mode){
                     case INT0_LowLevel:
@@ -220,12 +221,15 @@ void INTP0_VidSelectEvent(uint8 COPY_uint8EventState){
                     MCUCR &= (~(1<<ISC00)) & (~(1<<ISC01));
                     break;
                     case INT0_LogicalChange:
+					MCUCR &= (~(1<<ISC00)) & (~(1<<ISC01));
                     MCUCR |= (1<<ISC00); 
                     break;
                     case INT0_FallingEdge:
+					MCUCR &= (~(1<<ISC00)) & (~(1<<ISC01));
                     MCUCR |= (1<<ISC01);
                     break;
                     case INT0_RisingEdge:
+					MCUCR &= (~(1<<ISC00)) & (~(1<<ISC01));
                     MCUCR |= (1<<ISC01);
                     MCUCR |= (1<<ISC00);
                     break;
