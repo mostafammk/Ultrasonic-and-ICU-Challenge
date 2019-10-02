@@ -1,9 +1,8 @@
 #ifndef EXTINTER_H_
 #define EXTINTER_H_
 
-#include "STD_Types.h"
 #include "ExtInter_conf.h"
-#include "REG_Lib.h"
+ 
 
 STD_Fun_t INTP_vidInit(void);
 
