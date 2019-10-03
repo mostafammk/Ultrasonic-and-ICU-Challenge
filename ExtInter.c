@@ -103,13 +103,14 @@ STD_Fun_t INTP_vidInit(void)
             else if (Interrupt_Array[Local_Loop].Name == INT2) {
                 // Pull Up Resistor
                 PORTB |= (1<<INT2_PIN);
+			   // DDRB &= ~(1<<INT2_PIN);
                 // Configuration
                 switch(Interrupt_Array[Local_Loop].Trigger_Mode){
                     case INT2_FallingEdge:
-                    MCUCR &= (~(1<<ISC2));
+                    MCUCSR &= (~(1<<ISC2));
                     break;
                     case INT2_RisingEdge:
-                    MCUCR |= (1<<ISC2);
+                    MCUCSR |= (1<<ISC2);
                     break;
                     default:
                     StateVar = NOK;
@@ -165,6 +166,7 @@ void INTP1_vidEnabled(void){
 }
 
 void INTP2_vidEnabled(void){
+
     uint8 Local_loop;
     for(Local_loop=0; Local_loop<Num_Of_Interrupt; Local_loop++){
         if (Interrupt_Array[Local_loop].Name == INT2){
@@ -172,6 +174,7 @@ void INTP2_vidEnabled(void){
         }
     }
     // Enable Global Interrupt control register and global interrupt
+	//GIFR |= (1<<5);
     GICR |= (1<<INT2_GICRBIT);
     SREG |= (1<<SREG_I); 
 }
@@ -271,10 +274,10 @@ void INTP2_VidSelectEvent(uint8 COPY_uint8EventState){
         if (Interrupt_Array[Local_loop].Name == INT2){
             switch(COPY_uint8EventState){
                     case INT2_FallingEdge:
-                    MCUCR &= (~(1<<ISC2));
+                    MCUCSR &= (~(1<<ISC2));
                     break;
                     case INT2_RisingEdge:
-                    MCUCR |= (1<<ISC2);
+                    MCUCSR |= (1<<ISC2);
                     break;
                     default:
                     break;

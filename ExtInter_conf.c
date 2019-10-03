@@ -8,7 +8,7 @@
 
 
 
-Interrupt_Conf_t Interrupt_Array[Num_Of_Interrupt] = { {INT0, INT0_RisingEdge, Active} , 
-{INT1, INT1_LogicalChange ,In_Active } , 
-{INT2, INT2_FallingEdge, In_Active}
+Interrupt_Conf_t Interrupt_Array[Num_Of_Interrupt] = { {INT0, INT0_RisingEdge, In_Active} , 
+{INT1, INT1_RisingEdge ,In_Active } , 
+{INT2, INT2_RisingEdge, Active}
 };
